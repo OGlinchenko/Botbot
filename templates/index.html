@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Mines</title>
+    <style>
+        /* Стили для фона */
+        body {
+            background-image: url('/static/background.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Квадрат будет ниже центра экрана */
+            height: 100vh; /* Занимаем всю высоту экрана */
+        }
+        /* Стили для квадрата */
+        #square {
+            width: 250px;
+            height: 250px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid #333; /* Обводка квадрата */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень квадрата */
+            border-radius: 20px; /* Закругление краев */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        /* Стили для кнопок */
+        .button {
+            display: block;
+            margin: 50px auto;
+            text-align: center;
+            font-size: 18px;
+            background-color: #D0910A; /* Цвет кнопок */
+            color: #fff; /* Цвет текста на кнопках */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 20px rgba(210, 151, 61, 0.89); /* Тень кнопок с рассеивающим светом */
+        }
+
+        /* Стили для кнопки "Get Signal" */
+        #getSignalButton {
+			height: 5%;
+            width: 50%;
+			top: 65%;
+            left: 25%;
+			position: absolute;
+        }
+
+        /* Стили для кнопки "GAME HERE" */
+        #gameHereButton {
+			
+            width: 25%;
+            top: 76%;
+			position: absolute;
+        }
+    #loadingGif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Отображение поверх квадрата */
+        }
+    </style>
+</head>
+<body>
+	<!-- Loading GIF -->
+    <img id="loadingGif" src="/static/loading.gif" alt="Loading..." style="display: none;">
+    <button class="button" id="getSignalButton">Get Signal</button>
+    <button class="button" id="gameHereButton">GAME HERE</button>
+    <div id="square">
+        <!-- Квадрат будет здесь -->
+    </div>
+
+    <script>
+        const square = document.getElementById('square');
+        const getSignalButton = document.getElementById('getSignalButton');
+        const gameHereButton = document.getElementById('gameHereButton');
+
+        // Список заранее подготовленных имен файлов изображений
+        const imageFilenames = [
+            "/static/images/1.jpg",
+            "/static/images/2.jpg",
+            "/static/images/3.jpg",
+            "/static/images/4.jpg",
+            "/static/images/5.jpg",
+            "/static/images/6.jpg",
+            "/static/images/7.jpg",
+            "/static/images/8.jpg",
+            "/static/images/9.jpg",
+            "/static/images/10.jpg",
+            "/static/images/11.jpg",
+            "/static/images/12.jpg",
+            "/static/images/13.jpg",
+            "/static/images/14.jpg",
+            "/static/images/15.jpg",
+            "/static/images/16.jpg",
+            "/static/images/17.jpg",
+            "/static/images/18.jpg",
+            "/static/images/19.jpg",
+            "/static/images/20.jpg",
+            "/static/images/21.jpg",
+            "/static/images/22.jpg",
+            "/static/images/23.jpg",
+            "/static/images/24.jpg",
+            "/static/images/25.jpg",
+            "/static/images/26.jpg",
+            "/static/images/27.jpg",
+            "/static/images/28.jpg",
+            "/static/images/29.jpg",
+            "/static/images/30.jpg",
+            
+        ];
+
+        // Функция для случайного выбора имени файла изображения
+        function getRandomImage() {
+            return imageFilenames[Math.floor(Math.random() * imageFilenames.length)];
+        }
+
+        // Показать loading GIF при нажатии на кнопку "Get Signal"
+        getSignalButton.addEventListener('click', () => {
+			const loadingGif = document.getElementById('loadingGif');
+            loadingGif.style.display = 'block';
+			
+			// Имитируем время загрузки (например, 2 секунды)
+            setTimeout(() => {
+                // Скрываем loading GIF
+                loadingGif.style.display = 'none';
+				
+           // Получаем случайное изображение и обновляем фон квадрата
+                const randomImage = getRandomImage();
+                square.style.backgroundImage = `url('${randomImage}')`;
+            }, 2000); // Настройте задержку по мере необходимости
+        });
+
+        // Обработчик нажатия на кнопку "GAME HERE"
+        gameHereButton.addEventListener('click', () => {
+            // Переход на сайт Apple
+            window.location.href = 'https://1wjirk.life/v3/aggressive-casino#7ng6';
+        });
+    </script>
+</body>
+</html>
